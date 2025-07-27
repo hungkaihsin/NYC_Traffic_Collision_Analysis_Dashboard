@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import './CrashOverview.css';
 
 function CrashOverview() {
   const [data, setData] = useState([]);
@@ -11,12 +12,12 @@ function CrashOverview() {
   }, []);
 
   return (
-    <div>
-      <h2>Top Crash Streets</h2>
-      <ul>
+    <div className="crash-overview-container fadeUp delay-2">
+      <h2 className="crash-overview-title">Top Crash Streets</h2>
+      <ul className="crash-list">
         {data.map((item, idx) => (
-          <li key={idx}>
-            {item['Street Name']}: {item['Number of Crashes']} crashes, {item['Number of Injuries']} injuries
+          <li key={idx} className="crash-item">
+            <strong>{item['Street Name']}</strong> : {item['Number of Crashes']} crashes, {item['Number of Injuries']} injuries
           </li>
         ))}
       </ul>
