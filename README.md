@@ -13,6 +13,12 @@ This project provides a comprehensive analysis of motor vehicle collisions in Ne
 
 *You can view the live dashboard here: [Dashboard live demo](https://traffic-analyze.onrender.com).*
 
+## Screenshot
+## Screenshot
+
+![Dashboard Screenshot](./assets/screenshot1.png)
+![Dashboard Screenshot](./assets/screenshot2.png)
+
 
 ## Technologies Used
 
