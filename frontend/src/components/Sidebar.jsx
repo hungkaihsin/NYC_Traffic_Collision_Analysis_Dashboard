@@ -18,21 +18,8 @@ function Sidebar() {
               <FaChartBar /> {!collapsed && 'Dashboard'}
             </Link>
           </li>
-          <li>
-            <Link to="/locations">
-              <FaMapMarkerAlt /> {!collapsed && 'Locations'}
-            </Link>
-          </li>
-          <li>
-            <Link to="/times">
-              <FaClock /> {!collapsed && 'Times'}
-            </Link>
-          </li>
-          <li>
-            <Link to="/collisions">
-              <FaCarCrash /> {!collapsed && 'Collisions'}
-            </Link>
-          </li>
+      
+         
         </ul>
       </nav>
     </aside>
