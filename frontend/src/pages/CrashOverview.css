@@ -19,6 +19,10 @@
   width: 450px;
   height: 200px;
 }
+.chart-card h3 {
+    font-size: 25px;
+    margin-top: -25px;
+}
 
 
 .dashboard-title {
