@@ -1,7 +1,8 @@
 .main-content {
   margin-left: 240px;
-  padding: 40px;
-  background-color: #f9f9fb;
+  padding: 40px 60px;
+  background-color: var(--bg);
+  color: var(--text);
   min-height: 100vh;
   font-family: 'Segoe UI', sans-serif;
 }
@@ -20,9 +21,10 @@
 }
 
 .chart-card-modern {
-  background: #fff;
+  background: var(--card);
   border-radius: 16px;
-  padding: 24px;
+  padding: 20px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-  height: 320px;
+  height: 350px;
+  color: var(--text);
 }

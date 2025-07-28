@@ -1,25 +1,28 @@
 .sidebar {
   width: 220px;
-  background-color: #ffffff;
-  border-right: 1px solid #eee;
+  background-color: var(--sidebar-bg);
+  color: var(--text);
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
   padding: 32px 16px;
-  font-family: 'Segoe UI', sans-serif;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+.sidebar.collapsed {
+  width: 70px;
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   margin-bottom: 40px;
   color: #6c63ff;
-}
-
-.sidebar nav ul {
-  list-style: none;
-  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
 }
 
 .sidebar nav li {
@@ -27,12 +30,8 @@
   align-items: center;
   gap: 10px;
   padding: 12px 8px;
-  color: #333;
+  color: var(--text);
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.2s;
-}
-
-.sidebar nav li:hover {
-  background-color: #f0f0f0;
 }
