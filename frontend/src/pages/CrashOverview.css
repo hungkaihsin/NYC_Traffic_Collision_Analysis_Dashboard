@@ -10,7 +10,7 @@
 .dashboard-title {
   font-size: 32px;
   font-weight: 600;
-  color: #333;
+  color: var(--text); /* <- use dynamic theme text */
   margin-bottom: 32px;
 }
 
