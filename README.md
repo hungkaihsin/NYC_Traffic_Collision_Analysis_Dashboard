@@ -11,7 +11,7 @@ This project provides a comprehensive analysis of motor vehicle collisions in Ne
 
 ## Live Demo
 
-[Dashboard live demo](https://traffic-analyze.onrender.com).*
+[Dashboard live demo](https://traffic-analyze.onrender.com)
 
 ## Screenshot
 
