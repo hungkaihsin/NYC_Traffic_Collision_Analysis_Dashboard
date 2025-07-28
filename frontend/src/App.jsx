@@ -2,6 +2,7 @@ import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Sidebar from './components/Sidebar.jsx';
 import CrashOverview from './pages/CrashOverview.jsx';
 import useDarkMode from './hooks/useDarkMode.js';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -16,8 +17,8 @@ function App() {
       </button>
       <Routes>
         <Route path="/" element={<CrashOverview />} />
-        
       </Routes>
+      <Footer />
       </HashRouter>
     </div>
   );

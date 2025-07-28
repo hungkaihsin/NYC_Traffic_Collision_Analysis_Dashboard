@@ -29,8 +29,7 @@ function CrashOverview() {
             orientation: 'h',
             marker: { color: '#c0392b' }
           }]}
-            layout={{
-              margin: { l: 250, r: 20, t: 50, b: 40 },}}
+          layout={{ margin: { l: 250, r: 20, t: 50, b: 40 } }}
         />
         <ChartCard
           title="Crashes Over Time"
@@ -65,6 +64,27 @@ function CrashOverview() {
           layout={{ margin: { t: 50, b: 50 } }}
         />
       </div>
+
+      {/* Insights Section */}
+      <section className="analysis-section">
+        <h2>Insights & Analysis</h2>
+        <p>
+          Broadway leads in crash frequency, likely due to its complex layout and heavy tourism near Times Square.
+          Belt Parkway records the highest injury count, indicating more severe accidents.
+        </p>
+        <p>
+          Crashes peak at <strong>3 PM on weekdays</strong>, driven by rush-hour congestion. 
+          This pattern is consistent across the top crash-prone streets, showing the strong influence of commuter traffic.
+        </p>
+        <p>
+          <strong>Recommendations:</strong>
+        </p>
+        <ul>
+          <li>Redesign traffic flow and enforce speed controls on Broadway and Belt Parkway.</li>
+          <li>Launch awareness campaigns targeting drivers during weekday rush hours.</li>
+          <li>Improve pedestrian safety and signage in tourist-heavy areas like Times Square.</li>
+        </ul>
+      </section>
     </main>
   );
 }

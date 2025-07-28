@@ -28,3 +28,25 @@
   height: 350px;
   color: var(--text);
 }
+
+.analysis-section {
+  margin-top: 48px;
+  background: var(--card);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  color: var(--text);
+  max-width: 1000px;
+  line-height: 1.6;
+}
+
+.analysis-section h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.analysis-section ul {
+  margin: 12px 0 0 20px;
+  list-style: disc;
+}
