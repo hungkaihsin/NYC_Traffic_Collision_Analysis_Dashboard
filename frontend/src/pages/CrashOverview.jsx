@@ -10,10 +10,10 @@ function CrashOverview() {
   const [hourly, setHourly] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5001/api/summary').then(res => setSummary(res.data));
-    axios.get('http://localhost:5001/api/trends').then(res => setTrends(res.data));
-    axios.get('http://localhost:5001/api/borough-injuries').then(res => setBoroughs(res.data));
-    axios.get('http://localhost:5001/api/hourly-crashes').then(res => setHourly(res.data));
+    axios.get('https://traffic-analyze-backend.onrender.com/api/summary').then(res => setSummary(res.data));
+    axios.get('https://traffic-analyze-backend.onrender.com/api/trends').then(res => setTrends(res.data));
+    axios.get('https://traffic-analyze-backend.onrender.com/api/borough-injuries').then(res => setBoroughs(res.data));
+    axios.get('https://traffic-analyze-backend.onrender.com/api/hourly-crashes').then(res => setHourly(res.data));
   }, []);
 
   return (
