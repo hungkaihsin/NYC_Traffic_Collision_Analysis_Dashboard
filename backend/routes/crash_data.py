@@ -18,8 +18,30 @@ if not os.path.exists(DATA_PATH):
     print("Downloading dataset from Google Drive using gdown...")
     gdown.download(DATA_URL, DATA_PATH, quiet=False)
 
-# Load CSV
-df = pd.read_csv(DATA_PATH, encoding='utf-8-sig', low_memory=False)
+# ✅ Memory-efficient CSV loading
+USE_COLUMNS = [
+    'CRASH DATE',
+    'CRASH TIME',
+    'BOROUGH',
+    'ON STREET NAME',
+    'COLLISION_ID',
+    'NUMBER OF PERSONS INJURED'
+]
+
+DTYPES = {
+    'BOROUGH': 'category',
+    'ON STREET NAME': 'category',
+    'COLLISION_ID': 'int32',
+    'NUMBER OF PERSONS INJURED': 'float32'
+}
+
+df = pd.read_csv(
+    DATA_PATH,
+    encoding='utf-8-sig',
+    low_memory=True,
+    usecols=USE_COLUMNS,
+    dtype=DTYPES
+)
 
 # Clean date/time
 df['CRASH DATE'] = pd.to_datetime(df['CRASH DATE'], errors='coerce')
