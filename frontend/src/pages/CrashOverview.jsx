@@ -29,7 +29,8 @@ function CrashOverview() {
             orientation: 'h',
             marker: { color: '#c0392b' }
           }]}
-          layout={{ margin: { l: 120, r: 20, t: 50, b: 40 } }}
+            layout={{
+              margin: { l: 250, r: 20, t: 50, b: 40 },}}
         />
         <ChartCard
           title="Crashes Over Time"
@@ -61,7 +62,7 @@ function CrashOverview() {
             y: hourly.map(h => h['Crashes']),
             marker: { color: '#16a085' }
           }]}
-          layout={{ margin: { t: 50, b: 40 } }}
+          layout={{ margin: { t: 50, b: 50 } }}
         />
       </div>
     </main>
