@@ -1,0 +1,29 @@
+.page-container {
+  margin-left: 240px;
+  padding: 40px 60px;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.page-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 32px;
+}
+
+.chart-wrapper {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  height: 350px;
+}

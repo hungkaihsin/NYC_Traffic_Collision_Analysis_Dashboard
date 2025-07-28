@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FaChartBar, FaMapMarkerAlt, FaClock, FaCarCrash, FaBars } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import './Sidebar.css';
 
 function Sidebar() {
@@ -12,10 +13,26 @@ function Sidebar() {
       </div>
       <nav>
         <ul>
-          <li><FaChartBar /> {!collapsed && 'Dashboard'}</li>
-          <li><FaMapMarkerAlt /> {!collapsed && 'Locations'}</li>
-          <li><FaClock /> {!collapsed && 'Times'}</li>
-          <li><FaCarCrash /> {!collapsed && 'Collisions'}</li>
+          <li>
+            <Link to="/">
+              <FaChartBar /> {!collapsed && 'Dashboard'}
+            </Link>
+          </li>
+          <li>
+            <Link to="/locations">
+              <FaMapMarkerAlt /> {!collapsed && 'Locations'}
+            </Link>
+          </li>
+          <li>
+            <Link to="/times">
+              <FaClock /> {!collapsed && 'Times'}
+            </Link>
+          </li>
+          <li>
+            <Link to="/collisions">
+              <FaCarCrash /> {!collapsed && 'Collisions'}
+            </Link>
+          </li>
         </ul>
       </nav>
     </aside>
