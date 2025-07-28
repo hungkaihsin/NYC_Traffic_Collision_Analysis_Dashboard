@@ -2,7 +2,7 @@ import Plot from 'react-plotly.js';
 
 function ChartCard({ title, data, layout }) {
   return (
-    <div className="chart-card">
+    <div className="chart-card-modern">
       <Plot
         data={data}
         layout={{
@@ -10,13 +10,13 @@ function ChartCard({ title, data, layout }) {
           title: {
             text: title,
             font: { size: 18 },
-            x: 0.5, // center
+            x: 0.5,
             xanchor: 'center'
           },
           autosize: true
         }}
+        useResizeHandler
         style={{ width: '100%', height: '100%' }}
-        useResizeHandler={true}
       />
     </div>
   );

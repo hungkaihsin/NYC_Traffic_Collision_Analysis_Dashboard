@@ -17,9 +17,9 @@ function CrashOverview() {
   }, []);
 
   return (
-    <div className="dashboard-container fadeUp delay-2">
-      <h1 className="dashboard-title">Traffic Data Dashboard</h1>
-      <div className="chart-grid">
+    <main className="main-content">
+      <h1 className="dashboard-title">📊 NYC Traffic Dashboard</h1>
+      <div className="chart-grid-modern">
         <ChartCard
           title="Top 10 Crash-Prone Streets"
           data={[{
@@ -29,9 +29,8 @@ function CrashOverview() {
             orientation: 'h',
             marker: { color: '#c0392b' }
           }]}
-          layout={{ margin: { l: 120, r: 20, t: 30, b: 40 } }}
+          layout={{ margin: { l: 120, r: 20, t: 50, b: 40 } }}
         />
-
         <ChartCard
           title="Crashes Over Time"
           data={[{
@@ -41,9 +40,8 @@ function CrashOverview() {
             y: trends.map(t => t['Crashes']),
             marker: { color: '#2980b9' }
           }]}
-          layout={{ margin: { t: 30, b: 40 } }}
+          layout={{ margin: { t: 50, b: 40 } }}
         />
-
         <ChartCard
           title="Injuries by Borough"
           data={[{
@@ -53,9 +51,8 @@ function CrashOverview() {
             textinfo: 'label+percent',
             hole: 0.4
           }]}
-          layout={{ margin: { t: 30, b: 40 } }}
+          layout={{ margin: { t: 50, b: 40 } }}
         />
-
         <ChartCard
           title="Crashes by Hour of Day"
           data={[{
@@ -64,10 +61,10 @@ function CrashOverview() {
             y: hourly.map(h => h['Crashes']),
             marker: { color: '#16a085' }
           }]}
-          layout={{ margin: { t: 30, b: 40 } }}
+          layout={{ margin: { t: 50, b: 40 } }}
         />
       </div>
-    </div>
+    </main>
   );
 }
 

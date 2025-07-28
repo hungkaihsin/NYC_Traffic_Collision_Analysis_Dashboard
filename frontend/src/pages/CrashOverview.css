@@ -1,47 +1,28 @@
-.chart-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
-  /* max-width: 960px; */
-  width: 100%;
-  padding: 0 16px;
+.main-content {
+  margin-left: 240px;
+  padding: 40px;
+  background-color: #f9f9fb;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
 }
-
-.chart-card {
-  background-color: #e0e0e0;
-  border-radius: 24px;
-  padding: 60px;
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  color: #111;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  width: 450px;
-  height: 200px;
-}
-.chart-card h3 {
-    font-size: 25px;
-    margin-top: -25px;
-}
-
 
 .dashboard-title {
-
-    color: #111;
-    font-size: 40px;
-    margin-top: 50px;
-
+  font-size: 32px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 32px;
 }
 
-/* Responsive layout */
-@media (max-width: 768px) {
-  .chart-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
+.chart-grid-modern {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
+  gap: 32px;
+}
 
-  .chart-card {
-    font-size: 20px;
-    padding: 40px;
-  }
+.chart-card-modern {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  height: 320px;
 }
