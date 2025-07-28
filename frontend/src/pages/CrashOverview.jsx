@@ -18,7 +18,7 @@ function CrashOverview() {
 
   return (
     <main className="main-content">
-      <h1 className="dashboard-title">📊 NYC Traffic Dashboard</h1>
+      <h1 className="dashboard-title">NYC Traffic Dashboard</h1>
       <div className="chart-grid-modern">
         <ChartCard
           title="Top 10 Crash-Prone Streets"
