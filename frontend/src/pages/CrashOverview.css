@@ -1,0 +1,52 @@
+.main-content {
+  margin-left: 240px;
+  padding: 40px 60px;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.dashboard-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text); /* <- use dynamic theme text */
+  margin-bottom: 32px;
+}
+
+.chart-grid-modern {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
+  gap: 32px;
+}
+
+.chart-card-modern {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  height: 350px;
+  color: var(--text);
+}
+
+.analysis-section {
+  margin-top: 48px;
+  background: var(--card);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  color: var(--text);
+  max-width: 1000px;
+  line-height: 1.6;
+}
+
+.analysis-section h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.analysis-section ul {
+  margin: 12px 0 0 20px;
+  list-style: disc;
+}

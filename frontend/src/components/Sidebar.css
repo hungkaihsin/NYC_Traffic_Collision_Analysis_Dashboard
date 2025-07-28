@@ -1,0 +1,63 @@
+/* Default sidebar */
+.sidebar {
+  width: 220px;
+  background-color: var(--sidebar-bg);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 32px 16px;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+/* Collapsed sidebar */
+.sidebar.collapsed {
+  width: 70px; /* Shrinks properly */
+  padding: 32px 8px; /* Reduce padding */
+}
+
+.sidebar .logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.sidebar.collapsed .logo {
+  justify-content: center;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 40px;
+}
+
+.sidebar nav ul li {
+  margin-bottom: 20px;
+}
+
+.sidebar nav ul li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.sidebar nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar.collapsed nav ul li a {
+  justify-content: center; /* Center icons when collapsed */
+  gap: 0;
+  padding: 10px;
+  text-align: center;
+}
