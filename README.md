@@ -61,6 +61,7 @@ To get a local copy up and running, follow these simple steps.
     ```
 3. Open your browser and navigate to `http://localhost:5173` (or the address shown in your terminal).
 
+
 ## Data Insights
 
 The data analysis was performed in a Jupyter Notebook included in the root directory. The notebook covers data cleaning, preprocessing, and visualization steps.
@@ -70,6 +71,14 @@ The data analysis was performed in a Jupyter Notebook included in the root direc
 - **Crash Trends:** Seasonal, daily, and hourly crash patterns.  
 - **Contributing Factors:** Most common causes of vehicle collisions.  
 - **Vehicle Types:** The vehicle categories most often involved in crashes.  
+
+## Power BI Dashboard
+
+An additional interactive analysis was built using Power BI to complement the Flask + React dashboard.  
+The Power BI version highlights the same key metrics (Top 10 crash-prone streets, crash trends, injuries by borough, and hourly crash distribution) in a professional BI tool format.  
+
+You can view the exported dashboard here:  
+[📊 NYC Traffic Data Analytics – Power BI (PDF)](./NYC%20Traffic%20Data%20Analytics%20-%20Power%20BI.pdf)
 
 ## Contact
 

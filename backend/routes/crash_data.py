@@ -8,17 +8,18 @@ crash_data_blueprint = Blueprint('crash_data', __name__)
 # Google Drive dataset config
 DATA_URL = "https://drive.google.com/uc?export=download&id=1vHlVKXMaNujytaHFfQL3WP5D9xWjZoL5"
 DATA_DIR = "dataset"
-DATA_PATH = os.path.join(DATA_DIR, "Motor_Vehicle_Collisions.csv")
+RAW_PATH = os.path.join(DATA_DIR, "Motor_Vehicle_Collisions.csv")
+CLEAN_PATH = os.path.join(DATA_DIR, "clean.csv")
 
 # Ensure dataset directory exists
 os.makedirs(DATA_DIR, exist_ok=True)
 
 # Download dataset if not already present
-if not os.path.exists(DATA_PATH):
+if not os.path.exists(RAW_PATH):
     print("Downloading dataset from Google Drive using gdown...")
-    gdown.download(DATA_URL, DATA_PATH, quiet=False)
+    gdown.download(DATA_URL, RAW_PATH, quiet=False)
 
-# ✅ Memory-efficient CSV loading
+# ✅ Columns to use
 USE_COLUMNS = [
     'CRASH DATE',
     'CRASH TIME',
@@ -35,19 +36,28 @@ DTYPES = {
     'NUMBER OF PERSONS INJURED': 'float32'
 }
 
+# Load raw data
 df = pd.read_csv(
-    DATA_PATH,
+    RAW_PATH,
     encoding='utf-8-sig',
     low_memory=True,
     usecols=USE_COLUMNS,
     dtype=DTYPES
 )
 
-# Clean date/time
+# 🔹 Clean dataset
 df['CRASH DATE'] = pd.to_datetime(df['CRASH DATE'], errors='coerce')
 df['CRASH TIME'] = pd.to_datetime(df['CRASH TIME'], format='%H:%M', errors='coerce').dt.hour
 
+# Drop rows with missing IDs (safety)
+df = df[df['COLLISION_ID'].notna()]
+
+# Save unified cleaned dataset
+df.to_csv(CLEAN_PATH, index=False)
+
+# ===================================================
 # 1. Top 10 Streets
+# ===================================================
 summary = (
     df[df['ON STREET NAME'].notna()]
     .groupby('ON STREET NAME')
@@ -64,12 +74,15 @@ summary = (
     .sort_values(by='Number of Crashes', ascending=False)
     .head(10)
 )
+summary.to_csv(os.path.join(DATA_DIR, "summary.csv"), index=False)
 
 @crash_data_blueprint.route('/summary')
 def get_summary():
     return jsonify(summary.to_dict(orient='records'))
 
+# ===================================================
 # 2. Monthly Crash Trends
+# ===================================================
 @crash_data_blueprint.route('/trends')
 def get_trends():
     trend = df[df['CRASH DATE'].notna()].copy()
@@ -77,7 +90,9 @@ def get_trends():
     result = trend.groupby('YearMonth').size().reset_index(name='Crashes')
     return jsonify(result.to_dict(orient='records'))
 
+# ===================================================
 # 3. Injuries by Borough
+# ===================================================
 @crash_data_blueprint.route('/borough-injuries')
 def borough_injuries():
     borough_df = (
@@ -89,7 +104,9 @@ def borough_injuries():
     )
     return jsonify(borough_df.to_dict(orient='records'))
 
+# ===================================================
 # 4. Crashes by Hour of Day
+# ===================================================
 @crash_data_blueprint.route('/hourly-crashes')
 def hourly_crashes():
     hourly = (
