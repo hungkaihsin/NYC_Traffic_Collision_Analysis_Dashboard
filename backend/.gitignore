@@ -1,5 +1,0 @@
-# Ignore the dataset directory
-dataset/
-
-# Ignore pycache
-__pycache__/

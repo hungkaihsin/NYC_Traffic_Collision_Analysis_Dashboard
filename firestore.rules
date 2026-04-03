@@ -1,0 +1,11 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Dashboard data is read-only for all users
+    match /dashboard/{document=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+  }
+}

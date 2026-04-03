@@ -1,0 +1,8 @@
+{
+  "name": "nyc-traffic-scripts",
+  "private": true,
+  "dependencies": {
+    "csv-parser": "^3.0.0",
+    "firebase-admin": "^13.0.0"
+  }
+}

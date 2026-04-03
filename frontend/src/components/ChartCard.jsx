@@ -1,8 +1,7 @@
 import Plot from 'react-plotly.js';
 import { useEffect, useState, useMemo } from 'react';
 
-function ChartCard({ title, data, layout }) {
-  // Stateful theme detection
+function ChartCard({ title, data, layout, delay = 0 }) {
   const [theme, setTheme] = useState(document.body.dataset.theme);
 
   useEffect(() => {
@@ -16,26 +15,51 @@ function ChartCard({ title, data, layout }) {
     return () => observer.disconnect();
   }, []);
 
+  const isDark = theme === 'dark';
+
   const plotLayout = useMemo(() => ({
     ...layout,
     title: {
       text: title,
-      font: { size: 18, color: theme === 'dark' ? '#f5f5f5' : '#111' },
+      font: {
+        size: 16,
+        weight: 600,
+        color: isDark ? '#e8eaed' : '#1a1d2e',
+        family: "'Inter', sans-serif",
+      },
       x: 0.5,
-      xanchor: 'center'
+      xanchor: 'center',
     },
-    font: { color: theme === 'dark' ? '#f5f5f5' : '#111' },
-    paper_bgcolor: theme === 'dark' ? '#2c2c2c' : '#ffffff',
-    plot_bgcolor: theme === 'dark' ? '#2c2c2c' : '#ffffff',
-    autosize: true
+    font: {
+      color: isDark ? '#9aa0b0' : '#6b7280',
+      family: "'Inter', sans-serif",
+      size: 12,
+    },
+    paper_bgcolor: 'transparent',
+    plot_bgcolor: 'transparent',
+    autosize: true,
+    xaxis: {
+      ...layout?.xaxis,
+      gridcolor: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.06)',
+      zerolinecolor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)',
+    },
+    yaxis: {
+      ...layout?.yaxis,
+      gridcolor: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.06)',
+      zerolinecolor: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)',
+    },
   }), [layout, title, theme]);
 
   return (
-    <div className="chart-card-modern">
+    <div
+      className="chart-card-modern"
+      style={{ animationDelay: `${delay}ms` }}
+    >
       <Plot
         data={data}
         layout={plotLayout}
         useResizeHandler
+        config={{ displayModeBar: false, responsive: true }}
         style={{ width: '100%', height: '100%' }}
       />
     </div>
